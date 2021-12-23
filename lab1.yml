@@ -1,0 +1,22 @@
+---
+- name: lab1 playbook
+  hosts: node1
+  tasks:
+    - name: install httpd
+      yum: name=httpd
+    
+    - name: enable and start httpd
+      service: name=httpd enable=true state=started
+
+    - name: create index.html
+      copy:
+        content: "Welcome to my weeb server"
+        dest: /var/www/html/index.html
+        mode: 0444
+
+    - name: open firewall port
+      firewalld:
+        service: httpd
+        permanent: true
+        state: enabled
+        immediate: yes
