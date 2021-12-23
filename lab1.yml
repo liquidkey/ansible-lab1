@@ -15,6 +15,10 @@
         dest: /var/www/html/index.html
         mode: 0444
 
+    - name: putting up filewall
+      service: firewalld
+      state: started
+        
     - name: open firewall port
       firewalld:
         service: http
