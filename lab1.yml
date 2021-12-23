@@ -17,7 +17,7 @@
 
     - name: open firewall port
       firewalld:
-        service: httpd
+        service: http
         permanent: true
         state: enabled
         immediate: yes
