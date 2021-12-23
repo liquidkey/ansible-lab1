@@ -7,7 +7,7 @@
       yum: name=httpd
     
     - name: enable and start httpd
-      service: name=httpd enable=true state=started
+      service: name=httpd enabled=true state=started
 
     - name: create index.html
       copy:
